@@ -18,21 +18,32 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9X0PBeziMnevAtwC_eLXyH5H
 	  };
 var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 	   
-	  var myLatlng1 = new google.maps.LatLng(50.833001, -0.180321); // Add the coordinates 
-	  var marker1 = new google.maps.Marker({ // Set the marker
-			position: myLatlng1, // Position marker to coordinates
-			map: map, // assign the market to our map variable
-			title: 'Click here for more details' // Marker ALT Text
-		});
+		   
+	    var locations = [
+	      ['Bondi Beach', 50.833001, -0.180321, 4],
+	      ['Coogee Beach', -33.923036, 151.259052, 5],
+	      ['Cronulla Beach', -34.028249, 151.157507, 3],
+	      ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+	      ['Maroubra Beach', -33.950198, 151.259302, 1]
+	    ];
 
- 	 var myLatlng2 = new google.maps.LatLng(50.826525   -0.153015); // Add the coordinates 
-	  var marker2 = new google.maps.Marker({ // Set the marker
-			position: myLatlng2, // Position marker to coordinates
-			map: map, // assign the market to our map variable
-			title: 'Click here for more details' // Marker ALT Text
-		});
-   }
-	
+	var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) { 
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
 	
 google.maps.event.addDomListener(window, 'load', initialize);
  </script>
