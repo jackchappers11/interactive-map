@@ -17,7 +17,18 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9X0PBeziMnevAtwC_eLXyH5H
 	  zoom:15, 
 	  };
 var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+	   
+	  var myLatlng1 = new google.maps.LatLng(50.833001, -0.180321); // Add the coordinates 
+	  var marker = new google.maps.Marker({ // Set the marker
+			position: myLatlng1, // Position marker to coordinates
+			map: map, // assign the market to our map variable
+			title: 'Click here for more details' // Marker ALT Text
+		});
+
+
    }
+	
+	
 google.maps.event.addDomListener(window, 'load', initialize);
  </script>
  </head>
