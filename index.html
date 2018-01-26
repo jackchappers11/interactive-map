@@ -25,6 +25,12 @@ var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions)
 			title: 'Click here for more details' // Marker ALT Text
 		});
 
+ 	 var myLatlng2 = new google.maps.LatLng(50.826525   -0.153015); // Add the coordinates 
+	  var marker = new google.maps.Marker({ // Set the marker
+			position: myLatlng2, // Position marker to coordinates
+			map: map, // assign the market to our map variable
+			title: 'Click here for more details' // Marker ALT Text
+		});
 
    }
 	
