@@ -9,25 +9,25 @@
 </style>
 <script type="text/javascript"
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9X0PBeziMnevAtwC_eLXyH5HI1cYjct4"></script>
-<script type="text/javascript">
-   function initialize() 
-   {
- 	  var mapOptions = {
-	  center: new google.maps.LatLng(50.8225,-0.13792 ),
-	  zoom:15, 
-	  };
-var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-	   
-		   
-	    var locations = [
-	      ['Bondi Beach', 50.833001, -0.180321, 4],
-	      ['Coogee Beach', -33.923036, 151.259052, 5],
-	      ['Cronulla Beach', -34.028249, 151.157507, 3],
-	      ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-	      ['Maroubra Beach', -33.950198, 151.259302, 1]
-	    ];
 
-	var infowindow = new google.maps.InfoWindow();
+<div id="map" style="height: 400px; width: 500px;">
+</div>
+<script type="text/javascript">
+    var locations = [
+      ['Bondi Beach', -33.890542, 151.274856, 4],
+      ['Coogee Beach', -33.923036, 151.259052, 5],
+      ['Cronulla Beach', -34.028249, 151.157507, 3],
+      ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+      ['Maroubra Beach', -33.950198, 151.259302, 1]
+    ];
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 17,
+      center: new google.maps.LatLng(50.8225,-0.13792 ),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
 
     var marker, i;
 
@@ -44,11 +44,6 @@ var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions)
         }
       })(marker, i));
     }
-	
-google.maps.event.addDomListener(window, 'load', initialize);
- </script>
- </head>
- <body>
- <div id="map-canvas"></div>
+  </script>
  </body>
  </html>
